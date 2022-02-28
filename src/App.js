@@ -10,6 +10,8 @@ class App extends Component {
       monsters: [],
       searchField: "",
     };
+    // not neeeded if arrow function used
+    // this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount() {
@@ -17,6 +19,10 @@ class App extends Component {
       .then((response) => response.json())
       .then((users) => this.setState({ monsters: users }));
   }
+
+  handleChange = (e) => {
+    this.setState({ searchField: e.target.value });
+  };
 
   render() {
     const { monsters, searchField } = this.state;
@@ -27,13 +33,10 @@ class App extends Component {
 
     return (
       <div className="App">
+        <h1>Monsters Rolodex</h1>
         <SearchBar
           placeholder={"Search Monsters"}
-          handleChange={(e) => {
-            this.setState({ searchField: e.target.value }, () =>
-              console.log(this.state)
-            );
-          }}
+          handleChange={this.handleChange}
         />
         <CardList monsters={filteredMonsters} />
       </div>
@@ -60,3 +63,9 @@ export default App;
 //     console.log("There was an error");
 //   }
 // };
+
+// handleChange(e) => {
+//             this.setState({ searchField: e.target.value }, () =>
+//               console.log(this.state)
+//             );}
+// setstate takes two
