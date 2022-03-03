@@ -1,14 +1,30 @@
-import React from "react";
-
 import "./search-bar.styles.css";
 
-export function SearchBar({ placeholder, handleChange }) {
-  return (
-    <input
-      className="search"
-      type="search"
-      placeholder={placeholder}
-      onChange={handleChange}
-    />
-  );
-}
+const SearchBar = ({ placeholder, handleChange }) => (
+  <input
+    className="search"
+    type="search"
+    placeholder={placeholder}
+    onChange={handleChange}
+  />
+);
+
+export default SearchBar;
+
+// import { Component } from "react";
+
+// class SearchBar extends Component {
+//   render() {
+//     const { placeholder, handleChange } = this.props;
+//     return (
+//       <input
+//         className="search"
+//         type="search"
+//         placeholder={placeholder}
+//         onChange={handleChange}
+//       />
+//     );
+//   }
+// }
+
+// export default SearchBar;
